@@ -13,7 +13,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/Haramaya-Gym">
         <div className="smooth-scroll">
           <Routes>
             <Route path="/" element={<Index />} />
