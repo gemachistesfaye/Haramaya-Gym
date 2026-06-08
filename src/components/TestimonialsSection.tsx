@@ -6,7 +6,7 @@ const TestimonialsSection = () => {
     {
       name: "Sarah Johnson",
       role: "Marketing Executive",
-      content: "Apex Fitness completely transformed my approach to wellness. The trainers are incredibly knowledgeable and the community is so supportive. I've never felt stronger!",
+      content: "Haramaya Gym completely transformed my approach to wellness. The trainers are incredibly knowledgeable and the community is so supportive. I've never felt stronger!",
       rating: 5,
       image: "SJ"
     },
@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
     {
       name: "Emma Rodriguez",
       role: "Teacher",
-      content: "I was intimidated by gyms before, but Apex made me feel welcome from day one. The group classes are amazing and I've made lifelong friends here.",
+      content: "I was intimidated by gyms before, but Haramaya Gym made me feel welcome from day one. The group classes are amazing and I've made lifelong friends here.",
       rating: 5,
       image: "ER"
     },
@@ -41,7 +41,7 @@ const TestimonialsSection = () => {
     {
       name: "James Wilson",
       role: "Retired Veteran",
-      content: "At 55, I'm in the best shape of my life thanks to Apex. The staff treats everyone like family and the atmosphere is motivating yet comfortable.",
+      content: "At 55, I'm in the best shape of my life thanks to Haramaya Gym. The staff treats everyone like family and the atmosphere is motivating yet comfortable.",
       rating: 5,
       image: "JW"
     }
@@ -55,7 +55,7 @@ const TestimonialsSection = () => {
             MEMBER <span className="text-gradient">STORIES</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Real transformations from real people who chose to make a change at Apex Fitness.
+            Real transformations from real people who chose to make a change at Haramaya Gym.
           </p>
         </div>
 

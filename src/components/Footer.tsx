@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from "lucide-react"
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary/40 py-12 px-4 sm:px-6 lg:px-8">
+    <footer role="contentinfo" className="bg-secondary/40 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -14,13 +14,13 @@ const Footer = () => {
               Unleash your strength and start your fitness journey with top-quality equipment and expert guidance.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-primary transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com/haramayagym" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://instagram.com/haramayagym" aria-label="Instagram" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
             </div>

@@ -6,7 +6,7 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Basic",
-      price: "$29",
+      price: "600 ETB",
       description: "Perfect for beginners starting their fitness journey",
       popular: false,
       features: [
@@ -19,7 +19,7 @@ const PricingSection = () => {
     },
     {
       name: "Premium",
-      price: "$59",
+      price: "1,200 ETB",
       description: "Our most popular plan with comprehensive benefits", 
       popular: true,
       features: [
@@ -33,7 +33,7 @@ const PricingSection = () => {
     },
     {
       name: "Elite",
-      price: "$99",
+      price: "2,500 ETB",
       description: "For serious athletes who demand the best",
       popular: false,
       features: [
@@ -81,7 +81,7 @@ const PricingSection = () => {
                   {plan.name}
                 </CardTitle>
                 <div className="text-center">
-                  <span className="text-5xl font-black text-primary">{plan.price}</span>
+                  <span className="text-4xl font-black text-primary">{plan.price}</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
                 <CardDescription className="text-center text-base">
