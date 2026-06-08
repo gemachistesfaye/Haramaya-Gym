@@ -8,46 +8,46 @@
 
 @layer base {
   :root {
-    /* Core Color System - Dark theme with vibrant accents */
-    --background: 210 11% 8%;
-    --foreground: 0 0% 98%;
+    /* Premium Dark Gold Palette */
+    --background: #0A0A0A;
+    --foreground: #FFFFFF;
 
-    --card: 210 10% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: #111111;
+    --card-foreground: #FFFFFF;
 
-    --popover: 210 11% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: #0A0A0A;
+    --popover-foreground: #FFFFFF;
 
-    /* Electric Green Primary - High energy accent */
-    --primary: 123 91% 47%;
-    --primary-foreground: 210 11% 8%;
-    --primary-glow: 123 91% 62%;
+    /* Accent colors */
+    --primary: #C9A84C; /* gold */
+    --primary-foreground: #0A0A0A;
+    --primary-glow: #E8B86D; /* amber */
 
-    /* Charcoal Secondary */
-    --secondary: 210 6% 15%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary */
+    --secondary: #141414;
+    --secondary-foreground: #FFFFFF;
 
     /* Muted grays */
-    --muted: 210 6% 15%;
-    --muted-foreground: 217 10% 65%;
+    --muted: #222222;
+    --muted-foreground: #888888;
 
-    /* Bright orange accent */
-    --accent: 25 95% 53%;
-    --accent-foreground: 210 11% 8%;
+    /* Accent */
+    --accent: #E8B86D;
+    --accent-foreground: #0A0A0A;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: #E53935;
+    --destructive-foreground: #FFFFFF;
 
-    --border: 210 6% 20%;
-    --input: 210 6% 15%;
-    --ring: 123 91% 47%;
+    --border: #333333;
+    --input: #222222;
+    --ring: #C9A84C;
 
     --radius: 0.75rem;
 
     /* Premium Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(210 11% 8% / 0.9), hsl(210 11% 8% / 0.7));
-    --gradient-card: linear-gradient(145deg, hsl(210 10% 10%), hsl(210 6% 15%));
+    --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+    --gradient-hero: linear-gradient(135deg, var(--background) 90%, var(--background) 70%);
+    --gradient-card: linear-gradient(145deg, var(--card), var(--background));
     
     /* Shadows & Effects */
     --shadow-neon: 0 0 30px hsl(var(--primary) / 0.3);
@@ -75,48 +75,12 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  /* Dark mode overrides removed to use unified premium palette */
 }
 
 @layer base {
   * {
-    @apply border-border;
+    /* removed invalid utility */
   }
 
   body {
