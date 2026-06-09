@@ -1,82 +1,87 @@
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
+import { MapPin, Phone, Mail, Dumbbell, Facebook, Instagram, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer role="contentinfo" className="bg-secondary/40 py-12 px-4 sm:px-6 lg:px-8">
+    <footer role="contentinfo" className="bg-secondary/40 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8">
-          {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <h3 className="text-2xl font-poppins font-black text-gradient mb-4">
-              HARAMAYA GYM
-            </h3>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              Unleash your strength and start your fitness journey with top-quality equipment and expert guidance.
+            <Link to="/" className="flex items-center space-x-2 mb-3">
+              <Dumbbell className="h-5 w-5 text-primary" />
+              <span className="font-poppins font-bold text-lg text-foreground">
+                HARAMAYA <span className="text-primary">GYM</span>
+              </span>
+            </Link>
+            <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+              Premium fitness experience in Haramaya, Ethiopia. Top-quality equipment and expert guidance.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="w-5 h-5" />
+            <div className="flex space-x-3">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook className="w-4 h-4" />
               </a>
-              <a href="https://instagram.com/haramayagym" aria-label="Instagram" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="w-5 h-5" />
+              <a href="https://instagram.com/haramayagym" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-primary transition-colors">
+                <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="w-5 h-5" />
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-muted-foreground hover:text-primary transition-colors">
+                <Twitter className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="font-poppins font-bold text-foreground mb-4">Quick Links</h4>
+            <h4 className="font-poppins font-semibold text-sm text-foreground mb-3">Quick Links</h4>
             <ul className="space-y-2">
-              {['About Us', 'Services', 'Pricing', 'Classes', 'Trainers'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    {item}
-                  </a>
+              {[
+                { name: "About Us", path: "/about" },
+                { name: "Services", path: "/services" },
+                { name: "Pricing", path: "/pricing" },
+                { name: "Contact", path: "/contact" },
+              ].map((item) => (
+                <li key={item.path}>
+                  <Link to={item.path} className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services */}
           <div>
-            <h4 className="font-poppins font-bold text-foreground mb-4">Services</h4>
+            <h4 className="font-poppins font-semibold text-sm text-foreground mb-3">Services</h4>
             <ul className="space-y-2">
-              {['Personal Training', 'Body Building', 'Group Classes', 'Nutrition Classes', 'Weight Loss'].map((item) => (
+              {["Personal Training", "Body Building", "Group Classes", "Nutrition Classes", "Recovery & Wellness"].map((item) => (
                 <li key={item}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/services" className="text-muted-foreground text-sm hover:text-primary transition-colors">
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="font-poppins font-bold text-foreground mb-4">Contact</h4>
-            <div className="space-y-3">
+            <h4 className="font-poppins font-semibold text-sm text-foreground mb-3">Contact</h4>
+            <div className="space-y-2.5">
               <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-accent" />
+                <MapPin className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">Haramaya, Ethiopia</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-accent" />
+                <Phone className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">+251 956784390</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-accent" />
-                <span className="text-muted-foreground text-sm">www.haramayagym.com</span>
+                <Mail className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                <span className="text-muted-foreground text-sm">info@haramayagym.com</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center">
-          <p className="text-muted-foreground">
-            © 2024 Haramaya Gym. All rights reserved. | Privacy Policy | Terms of Service
+        <div className="border-t border-border mt-8 pt-6 text-center">
+          <p className="text-muted-foreground text-sm">
+            &copy; {new Date().getFullYear()} Haramaya Gym. All rights reserved.
           </p>
         </div>
       </div>

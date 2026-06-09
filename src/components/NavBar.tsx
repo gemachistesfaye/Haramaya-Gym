@@ -1,87 +1,173 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, Bell } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Dumbbell } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
-export const NavBar = () => {
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Pricing", path: "/pricing" },
+  { name: "Contact", path: "/contact" },
+];
+
+const NavBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const toggleMenu = () => setMobileOpen(!mobileOpen);
+  const [joinDialogOpen, setJoinDialogOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location]);
+
+  const handleJoinSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    toast.success("Welcome! We'll contact you shortly to start your free trial.");
+    setJoinDialogOpen(false);
+  };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
-      {/* Announcement bar */}
-      <div className="bg-primary text-primary-foreground text-center text-sm py-1">
-        <span>🏋️‍♂️ Welcome to Haramaya Gym – Premium fitness experience!</span>
-      </div>
-      <nav className="flex items-center justify-between max-w-7xl mx-auto px-4 py-3">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2 text-primary hover:text-primary-foreground transition-colors">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-primary"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 20l-5.447-2.724A2 2 0 013 15.382V8.618a2 2 0 011.553-1.894L9 4m6 16l5.447-2.724A2 2 0 0021 15.382V8.618a2 2 0 00-1.553-1.894L15 4m-6 0v16"
-            />
-          </svg>
-          <span className="font-bold text-lg">HARAMAYA GYM</span>
-        </Link>
-        {/* Desktop links */}
-        <ul className="hidden md:flex space-x-6">
-          <li>
-            <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-          </li>
-          <li>
-            <Link to="/about" className="hover:text-primary transition-colors">About</Link>
-          </li>
-          <li>
-            <Link to="/services" className="hover:text-primary transition-colors">Services</Link>
-          </li>
-          <li>
-            <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
-          </li>
-        </ul>
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden p-2 rounded-md hover:bg-muted focus:outline-none"
-          aria-label="Toggle menu"
-          onClick={toggleMenu}
-        >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
-      </nav>
-      {/* Mobile drawer */}
-      {mobileOpen && (
-        <div className="md:hidden bg-background border-t border-border">
-          <ul className="flex flex-col space-y-2 px-4 py-2">
-            <li>
-              <Link to="/" onClick={toggleMenu} className="block py-2 hover:text-primary transition-colors">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" onClick={toggleMenu} className="block py-2 hover:text-primary transition-colors">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/services" onClick={toggleMenu} className="block py-2 hover:text-primary transition-colors">
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" onClick={toggleMenu} className="block py-2 hover:text-primary transition-colors">
-                Contact
-              </Link>
-            </li>
-          </ul>
+    <>
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg"
+            : "bg-background/80 backdrop-blur-sm"
+        }`}
+      >
+        <div className="bg-primary text-primary-foreground text-center text-xs py-1.5 font-medium">
+          Welcome to Haramaya Gym - Premium fitness experience in Haramaya, Ethiopia!
         </div>
-      )}
-    </header>
+        <nav className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <Link to="/" className="flex items-center space-x-2 group">
+            <Dumbbell className="h-6 w-6 text-primary group-hover:text-accent transition-colors" />
+            <span className="font-poppins font-bold text-lg text-foreground">
+              HARAMAYA <span className="text-primary">GYM</span>
+            </span>
+          </Link>
+
+          <ul className="hidden md:flex items-center space-x-1">
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    location.pathname === link.path
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="hidden md:flex items-center space-x-3">
+            <Button
+              variant="hero"
+              size="sm"
+              onClick={() => setJoinDialogOpen(true)}
+            >
+              Join Now
+            </Button>
+          </div>
+
+          <button
+            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            aria-label="Toggle menu"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </nav>
+
+        {mobileOpen && (
+          <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border">
+            <div className="max-w-7xl mx-auto px-4 py-3 space-y-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setMobileOpen(false)}
+                  className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    location.pathname === link.path
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Button
+                variant="hero"
+                className="w-full mt-2"
+                onClick={() => {
+                  setMobileOpen(false);
+                  setJoinDialogOpen(true);
+                }}
+              >
+                Join Now
+              </Button>
+            </div>
+          </div>
+        )}
+      </header>
+
+      <Dialog open={joinDialogOpen} onOpenChange={setJoinDialogOpen}>
+        <DialogContent className="sm:max-w-md bg-card border-border">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-poppins text-primary">
+              Start Your Free Trial
+            </DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Get 7 days free. No commitment required.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleJoinSubmit} className="space-y-4 mt-2">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <Label htmlFor="join-first" className="text-sm">First Name *</Label>
+                <Input id="join-first" placeholder="First name" required />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="join-last" className="text-sm">Last Name</Label>
+                <Input id="join-last" placeholder="Last name" />
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="join-email" className="text-sm">Email *</Label>
+              <Input id="join-email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="join-phone" className="text-sm">Phone</Label>
+              <Input id="join-phone" type="tel" placeholder="+251 9XX XXX XXX" />
+            </div>
+            <Button type="submit" variant="hero" className="w-full">
+              Start 7-Day Free Trial
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
+
+export default NavBar;
