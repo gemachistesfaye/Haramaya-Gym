@@ -100,18 +100,3 @@ export const plans: Plan[] = [
     ],
   },
 ];
-
-export const allFeatureNames = [
-  "24/7 gym access",
-  "Equipment usage",
-  "Locker room access",
-  "Free Wi-Fi",
-  "Group classes",
-  "Personal training",
-  "Nutrition consultation",
-  "Recovery zone access",
-  "Body composition analysis",
-  "Priority class booking",
-  "Guest privileges",
-  "Exclusive events",
-];
