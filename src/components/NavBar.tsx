@@ -58,19 +58,19 @@ const NavBar = () => {
         }`}
       >
         <nav className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16">
-          <Link to="/" className="flex items-center space-x-2 group">
-            <Dumbbell className="h-6 w-6 sm:h-7 sm:w-7 text-primary group-hover:text-accent transition-colors" />
-            <span className="font-poppins font-bold text-lg sm:text-xl text-foreground">
+          <Link to="/" className="flex items-center space-x-1.5 sm:space-x-2 group shrink-0">
+            <Dumbbell className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-primary group-hover:text-accent transition-colors" />
+            <span className="font-poppins font-bold text-base sm:text-lg md:text-xl text-foreground whitespace-nowrap">
               HARAMAYA <span className="text-primary">GYM</span>
             </span>
           </Link>
 
-          <ul className="hidden md:flex items-center space-x-1">
+          <ul className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`px-3 lg:px-4 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 ${
+                  className={`px-3 xl:px-4 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 ${
                     location.pathname === link.path
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -82,18 +82,18 @@ const NavBar = () => {
             ))}
           </ul>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <Button variant="hero" size="default" onClick={() => setJoinDialogOpen(true)}>
               Join Now
             </Button>
           </div>
 
-          <div className="flex items-center md:hidden gap-2">
-            <Button variant="hero" size="sm" className="text-xs px-3" onClick={() => setJoinDialogOpen(true)}>
+          <div className="flex items-center gap-2 shrink-0 lg:hidden">
+            <Button variant="hero" size="sm" className="text-xs px-2.5 py-1.5 min-h-0 h-auto" onClick={() => setJoinDialogOpen(true)}>
               Join
             </Button>
             <button
-              className="p-2 rounded-lg hover:bg-muted transition-colors"
+              className="p-2 rounded-lg hover:bg-muted transition-colors flex items-center justify-center"
               aria-label="Toggle menu"
               onClick={() => setMobileOpen(!mobileOpen)}
             >
@@ -103,7 +103,7 @@ const NavBar = () => {
         </nav>
 
         {mobileOpen && (
-          <div className="md:hidden fixed inset-0 top-[56px] bg-background/98 backdrop-blur-lg z-40">
+          <div className="lg:hidden fixed inset-0 top-[56px] bg-background/98 backdrop-blur-lg z-40">
             <div className="flex flex-col p-4 space-y-1">
               {navLinks.map((link) => (
                 <Link
