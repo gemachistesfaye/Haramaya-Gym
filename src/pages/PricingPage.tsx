@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -14,12 +15,14 @@ import { plans } from "@/data/plans";
 import { toast } from "sonner";
 
 const PricingPage = () => {
+  const navigate = useNavigate();
   const [annual, setAnnual] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<typeof plans[0] | null>(null);
   const [detailOpen, setDetailOpen] = useState(false);
 
   const handleChoosePlan = (plan: typeof plans[0]) => {
-    toast.success(`Great choice! Starting your ${plan.name} plan free trial.`);
+    toast.success(`Great choice! Redirecting to contact for your ${plan.name} plan...`);
+    navigate("/contact");
   };
 
   return (
