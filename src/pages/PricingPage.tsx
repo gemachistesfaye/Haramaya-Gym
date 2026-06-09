@@ -25,26 +25,26 @@ const PricingPage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-2xl md:text-4xl font-poppins font-black mb-3">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-black mb-5">
             MEMBERSHIP <span className="text-gradient">PLANS</span>
           </h1>
-          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-6">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Choose the plan that fits your lifestyle. All memberships include a 7-day free trial.
           </p>
 
           {/* Monthly/Annual Toggle */}
-          <div className="flex items-center justify-center space-x-3">
-            <span className={`text-xs font-medium transition-colors ${!annual ? "text-foreground" : "text-muted-foreground"}`}>
+          <div className="flex items-center justify-center space-x-4">
+            <span className={`text-base font-medium transition-colors ${!annual ? "text-foreground" : "text-muted-foreground"}`}>
               Monthly
             </span>
             <Switch checked={annual} onCheckedChange={setAnnual} />
-            <span className={`text-xs font-medium transition-colors ${annual ? "text-foreground" : "text-muted-foreground"}`}>
+            <span className={`text-base font-medium transition-colors ${annual ? "text-foreground" : "text-muted-foreground"}`}>
               Annual
             </span>
             {annual && (
-              <span className="text-[10px] font-bold text-success bg-success/10 px-2 py-0.5 rounded-full">
+              <span className="text-xs font-bold text-success bg-success/10 px-3 py-1 rounded-full">
                 Save 20%
               </span>
             )}
@@ -53,8 +53,8 @@ const PricingPage = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-6 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 lg:grid-cols-5 gap-5">
           {plans.map((plan) => {
             const price = annual && plan.annualPrice > 0 ? plan.annualPrice : plan.monthlyPrice;
             const isAnnual = annual && plan.annualPrice > 0;
@@ -69,34 +69,34 @@ const PricingPage = () => {
                 }`}
               >
                 {plan.popular && (
-                  <div className="bg-primary text-primary-foreground text-center py-1 text-[10px] font-bold tracking-wider">
+                  <div className="bg-primary text-primary-foreground text-center py-1.5 text-xs font-bold tracking-wider">
                     MOST POPULAR
                   </div>
                 )}
-                <CardHeader className={`text-center ${plan.popular ? "pt-5" : "pt-4"}`}>
-                  <CardTitle className="text-base font-poppins font-bold">{plan.name}</CardTitle>
-                  <div className="mt-1">
-                    <span className="text-xl font-black text-primary">{price.toLocaleString()}</span>
-                    <span className="text-[10px] text-muted-foreground"> ETB/mo</span>
+                <CardHeader className={`text-center ${plan.popular ? "pt-6" : "pt-5"}`}>
+                  <CardTitle className="text-xl font-poppins font-bold">{plan.name}</CardTitle>
+                  <div className="mt-2">
+                    <span className="text-3xl font-black text-primary">{price.toLocaleString()}</span>
+                    <span className="text-sm text-muted-foreground"> ETB/mo</span>
                   </div>
                   {isAnnual && (
-                    <p className="text-[10px] text-success font-medium">
+                    <p className="text-sm text-success font-medium">
                       Billed {(price * 12).toLocaleString()} ETB/year
                     </p>
                   )}
-                  <CardDescription className="text-[11px] mt-1">{plan.description}</CardDescription>
+                  <CardDescription className="text-sm mt-1">{plan.description}</CardDescription>
                 </CardHeader>
 
-                <CardContent className="space-y-3 px-3 pb-4">
-                  <ul className="space-y-1.5">
+                <CardContent className="space-y-4 px-4 pb-6">
+                  <ul className="space-y-2.5">
                     {plan.features.slice(0, 5).map((f, i) => (
-                      <li key={i} className="flex items-center space-x-2">
+                      <li key={i} className="flex items-center space-x-2.5">
                         {f.included ? (
-                          <Check className="w-3 h-3 text-primary flex-shrink-0" />
+                          <Check className="w-4 h-4 text-primary flex-shrink-0" />
                         ) : (
-                          <X className="w-3 h-3 text-muted-foreground/50 flex-shrink-0" />
+                          <X className="w-4 h-4 text-muted-foreground/50 flex-shrink-0" />
                         )}
-                        <span className={`text-[11px] ${f.included ? "text-foreground" : "text-muted-foreground/50"}`}>
+                        <span className={`text-sm ${f.included ? "text-foreground" : "text-muted-foreground/50"}`}>
                           {f.name}
                         </span>
                       </li>
@@ -106,7 +106,7 @@ const PricingPage = () => {
                   <Button
                     variant={plan.popular ? "hero" : "cta"}
                     className="w-full"
-                    size="sm"
+                    size="lg"
                     onClick={() => handleChoosePlan(plan)}
                   >
                     {plan.popular ? "Start Today" : "Choose Plan"}
@@ -114,8 +114,7 @@ const PricingPage = () => {
 
                   <Button
                     variant="ghost"
-                    size="sm"
-                    className="w-full text-[11px]"
+                    className="w-full text-sm"
                     onClick={() => {
                       setSelectedPlan(plan);
                       setDetailOpen(true);
@@ -131,18 +130,18 @@ const PricingPage = () => {
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="py-14 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-poppins font-bold text-center mb-6">
+          <h2 className="text-2xl md:text-3xl font-poppins font-bold text-center mb-8">
             Feature <span className="text-gradient">Comparison</span>
           </h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-xs">
+            <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-2.5 px-3 font-poppins font-semibold text-foreground">Feature</th>
+                  <th className="text-left py-3 px-4 font-poppins font-semibold text-foreground">Feature</th>
                   {plans.map((plan) => (
-                    <th key={plan.id} className={`text-center py-2.5 px-2 font-poppins font-semibold ${plan.popular ? "text-primary" : "text-foreground"}`}>
+                    <th key={plan.id} className={`text-center py-3 px-3 font-poppins font-semibold ${plan.popular ? "text-primary" : "text-foreground"}`}>
                       {plan.name}
                     </th>
                   ))}
@@ -151,16 +150,16 @@ const PricingPage = () => {
               <tbody>
                 {["24/7 Gym Access", "Equipment Usage", "Locker Room", "Wi-Fi", "Group Classes", "Personal Training", "Nutrition Plan", "Recovery Zone", "Body Analysis", "Guest Passes"].map((feature, i) => (
                   <tr key={i} className="border-b border-border/50 hover:bg-muted/30 transition-colors">
-                    <td className="py-2.5 px-3 text-muted-foreground">{feature}</td>
+                    <td className="py-3 px-4 text-muted-foreground">{feature}</td>
                     {plans.map((plan) => {
                       const feat = plan.features.find((f) => f.name.toLowerCase().includes(feature.toLowerCase().split(" ").slice(-1)[0]));
                       const included = feat?.included ?? (i < 4 ? true : false);
                       return (
-                        <td key={plan.id} className="text-center py-2.5 px-2">
+                        <td key={plan.id} className="text-center py-3 px-3">
                           {included ? (
-                            <Check className="w-3.5 h-3.5 text-primary mx-auto" />
+                            <Check className="w-5 h-5 text-primary mx-auto" />
                           ) : (
-                            <X className="w-3.5 h-3.5 text-muted-foreground/30 mx-auto" />
+                            <X className="w-5 h-5 text-muted-foreground/30 mx-auto" />
                           )}
                         </td>
                       );
@@ -174,12 +173,12 @@ const PricingPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-secondary/20">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/20">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-poppins font-bold text-center mb-6">
+          <h2 className="text-2xl md:text-3xl font-poppins font-bold text-center mb-8">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {[
               { q: "Can I cancel anytime?", a: "Yes! All plans are month-to-month with no long-term commitment. Cancel anytime from your account." },
               { q: "Is there a join fee?", a: "No! Currently, there is zero join fee. You only pay for your monthly membership." },
@@ -187,9 +186,9 @@ const PricingPage = () => {
               { q: "What's included in the free trial?", a: "The 7-day free trial gives you full access to your chosen plan's features. No credit card required." },
               { q: "Do you offer student discounts?", a: "Yes! Students with valid ID receive 15% off any plan. Contact us for details." },
             ].map((faq, i) => (
-              <Card key={i} className="card-gradient border-glow p-4">
-                <h3 className="text-sm font-poppins font-bold text-foreground mb-1">{faq.q}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{faq.a}</p>
+              <Card key={i} className="card-gradient border-glow p-5">
+                <h3 className="text-base font-poppins font-bold text-foreground mb-2">{faq.q}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
               </Card>
             ))}
           </div>
@@ -202,43 +201,43 @@ const PricingPage = () => {
           {selectedPlan && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-lg font-poppins text-primary">
+                <DialogTitle className="text-xl font-poppins text-primary">
                   {selectedPlan.name} Plan
                 </DialogTitle>
-                <DialogDescription className="text-muted-foreground text-xs">
+                <DialogDescription className="text-muted-foreground">
                   {selectedPlan.description}
                 </DialogDescription>
               </DialogHeader>
-              <div className="mt-2">
-                <div className="text-center mb-3">
-                  <span className="text-2xl font-black text-primary">
+              <div className="mt-3">
+                <div className="text-center mb-4">
+                  <span className="text-3xl font-black text-primary">
                     {(annual && selectedPlan.annualPrice > 0 ? selectedPlan.annualPrice : selectedPlan.monthlyPrice).toLocaleString()}
                   </span>
-                  <span className="text-xs text-muted-foreground"> ETB/month</span>
+                  <span className="text-sm text-muted-foreground"> ETB/month</span>
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {selectedPlan.features.map((f, i) => (
-                    <li key={i} className="flex items-center space-x-2">
+                    <li key={i} className="flex items-center space-x-2.5">
                       {f.included ? (
-                        <Check className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
                       ) : (
-                        <X className="w-3.5 h-3.5 text-muted-foreground/50 flex-shrink-0" />
+                        <X className="w-4 h-4 text-muted-foreground/50 flex-shrink-0" />
                       )}
-                      <span className={`text-xs ${f.included ? "text-foreground" : "text-muted-foreground/50"}`}>
+                      <span className={`text-sm ${f.included ? "text-foreground" : "text-muted-foreground/50"}`}>
                         {f.name}
                       </span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="flex gap-3 mt-3">
-                <Button variant="hero" className="flex-1" onClick={() => {
+              <div className="flex gap-3 mt-4">
+                <Button variant="hero" size="lg" className="flex-1" onClick={() => {
                   handleChoosePlan(selectedPlan);
                   setDetailOpen(false);
                 }}>
                   Start Free Trial
                 </Button>
-                <Button variant="ghost" onClick={() => setDetailOpen(false)}>
+                <Button variant="ghost" size="lg" onClick={() => setDetailOpen(false)}>
                   Close
                 </Button>
               </div>

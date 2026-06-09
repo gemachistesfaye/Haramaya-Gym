@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
@@ -20,10 +21,10 @@ const ServicesPage = () => {
       {/* Hero */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-poppins font-black mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-black mb-5">
             OUR <span className="text-gradient">SERVICES</span>
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Comprehensive fitness solutions designed to help you achieve your goals faster and more effectively.
           </p>
         </div>
@@ -34,7 +35,7 @@ const ServicesPage = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <Card key={service.id} className="card-gradient border-glow overflow-hidden group scale-hover flex flex-col">
-              <div className="relative h-40 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
@@ -42,18 +43,18 @@ const ServicesPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
               </div>
-              <CardContent className="p-5 flex flex-col flex-1">
-                <h3 className="text-lg font-poppins font-bold text-primary mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground mb-3 leading-relaxed flex-1">{service.shortDescription}</p>
-                <ul className="space-y-1.5 mb-4">
+              <CardContent className="p-6 flex flex-col flex-1">
+                <h3 className="text-xl font-poppins font-bold text-primary mb-2">{service.title}</h3>
+                <p className="text-base text-muted-foreground mb-4 leading-relaxed flex-1">{service.shortDescription}</p>
+                <ul className="space-y-2 mb-5">
                   {service.features.map((f, i) => (
-                    <li key={i} className="flex items-center space-x-2">
-                      <Check className="w-3.5 h-3.5 text-primary flex-shrink-0" />
-                      <span className="text-xs text-foreground">{f}</span>
+                    <li key={i} className="flex items-center space-x-2.5">
+                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm text-foreground">{f}</span>
                     </li>
                   ))}
                 </ul>
-                <Button variant="cta" className="w-full" onClick={() => handleLearnMore(service)}>
+                <Button variant="cta" size="lg" className="w-full" onClick={() => handleLearnMore(service)}>
                   Learn More
                 </Button>
               </CardContent>
@@ -65,17 +66,17 @@ const ServicesPage = () => {
       {/* CTA */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/10">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-poppins font-black mb-3">
+          <h2 className="text-2xl md:text-3xl font-poppins font-black mb-4">
             Not Sure Which <span className="text-gradient">Service</span> Is Right?
           </h2>
-          <p className="text-sm text-muted-foreground mb-6">
+          <p className="text-base text-muted-foreground mb-8">
             Contact us for a free consultation. We'll help you find the perfect program for your goals.
           </p>
-          <a href="/contact">
-            <Button variant="hero" size="lg" className="px-8">
+          <Link to="/contact">
+            <Button variant="hero" size="xl" className="px-10 text-lg">
               Get Free Consultation
             </Button>
-          </a>
+          </Link>
         </div>
       </section>
 

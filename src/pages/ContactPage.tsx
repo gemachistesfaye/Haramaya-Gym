@@ -61,10 +61,10 @@ const ContactPage = () => {
       {/* Hero */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-poppins font-black mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-black mb-5">
             GET IN <span className="text-gradient">TOUCH</span>
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to start your transformation? Contact us for a free consultation and facility tour.
           </p>
         </div>
@@ -72,37 +72,37 @@ const ContactPage = () => {
 
       {/* Content */}
       <section className="py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Form */}
           <Card className="card-gradient border-glow">
             <CardHeader>
-              <CardTitle className="text-lg font-poppins font-bold text-primary">Send Us a Message</CardTitle>
+              <CardTitle className="text-xl font-poppins font-bold text-primary">Send Us a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="space-y-1.5">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
                     <Label htmlFor="firstName" className="text-sm">First Name *</Label>
                     <Input id="firstName" placeholder="First name" value={formData.firstName} onChange={handleChange} required />
                   </div>
-                  <div className="space-y-1.5">
+                  <div className="space-y-2">
                     <Label htmlFor="lastName" className="text-sm">Last Name</Label>
                     <Input id="lastName" placeholder="Last name" value={formData.lastName} onChange={handleChange} />
                   </div>
                 </div>
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <Label htmlFor="email" className="text-sm">Email *</Label>
                   <Input id="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleChange} required />
                 </div>
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <Label htmlFor="phone" className="text-sm">Phone</Label>
                   <Input id="phone" type="tel" placeholder="+251 9XX XXX XXX" value={formData.phone} onChange={handleChange} />
                 </div>
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <Label htmlFor="message" className="text-sm">Message *</Label>
-                  <Textarea id="message" placeholder="Tell us about your fitness goals..." rows={4} value={formData.message} onChange={handleChange} required />
+                  <Textarea id="message" placeholder="Tell us about your fitness goals..." rows={5} value={formData.message} onChange={handleChange} required />
                 </div>
-                <Button variant="hero" className="w-full" type="submit" disabled={isLoading}>
+                <Button variant="hero" size="lg" className="w-full" type="submit" disabled={isLoading}>
                   {isLoading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
@@ -110,23 +110,25 @@ const ContactPage = () => {
           </Card>
 
           {/* Info */}
-          <div className="space-y-5">
+          <div className="space-y-6">
             <Card className="card-gradient border-glow">
               <CardHeader>
-                <CardTitle className="text-lg font-poppins font-bold text-primary">Visit Our Facility</CardTitle>
+                <CardTitle className="text-xl font-poppins font-bold text-primary">Visit Our Facility</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-5">
                 {[
                   { icon: MapPin, label: "Location", value: "Haramaya, Ethiopia" },
                   { icon: Phone, label: "Phone", value: "+251 956784390" },
                   { icon: Mail, label: "Email", value: "info@haramayagym.com" },
                   { icon: Clock, label: "Hours", value: "Mon-Sun: 5:00 AM - 11:00 PM" },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start space-x-3">
-                    <item.icon className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                  <div key={i} className="flex items-start space-x-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
                     <div>
-                      <p className="text-xs font-semibold text-foreground">{item.label}</p>
-                      <p className="text-xs text-muted-foreground">{item.value}</p>
+                      <p className="text-sm font-semibold text-foreground">{item.label}</p>
+                      <p className="text-sm text-muted-foreground">{item.value}</p>
                     </div>
                   </div>
                 ))}
@@ -134,14 +136,14 @@ const ContactPage = () => {
             </Card>
 
             <Card className="card-gradient border-glow overflow-hidden">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base font-poppins font-bold text-primary">Location Map</CardTitle>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg font-poppins font-bold text-primary">Location Map</CardTitle>
               </CardHeader>
               <CardContent className="p-0">
                 <iframe
                   title="Haramaya Gym Location"
                   width="100%"
-                  height="200"
+                  height="220"
                   frameBorder="0"
                   scrolling="no"
                   src="https://www.openstreetmap.org/export/embed.html?bbox=41.97%2C9.37%2C42.03%2C9.43&amp;layer=mapnik&amp;marker=9.4008%2C42.0022"
@@ -151,15 +153,15 @@ const ContactPage = () => {
             </Card>
 
             <Card className="card-gradient border-glow">
-              <CardContent className="p-4">
-                <div className="grid grid-cols-2 gap-4 text-center">
+              <CardContent className="p-6">
+                <div className="grid grid-cols-2 gap-6 text-center">
                   <div>
-                    <div className="text-2xl font-black text-primary">7</div>
-                    <div className="text-xs text-muted-foreground">Day Free Trial</div>
+                    <div className="text-3xl font-black text-primary">7</div>
+                    <div className="text-sm text-muted-foreground">Day Free Trial</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-accent">0</div>
-                    <div className="text-xs text-muted-foreground">Join Fee Today</div>
+                    <div className="text-3xl font-black text-accent">0</div>
+                    <div className="text-sm text-muted-foreground">Join Fee Today</div>
                   </div>
                 </div>
               </CardContent>
