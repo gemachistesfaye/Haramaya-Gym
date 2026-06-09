@@ -5,30 +5,29 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { NavBar } from "./components/NavBar";
 
 const queryClient = new QueryClient();
 
-import { NavBar } from "./components/NavBar";
-
+const App = () => {
   return (
-    <>
-      <NavBar />
+    <BrowserRouter basename="/Haramaya-Gym">
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <BrowserRouter basename="/Haramaya-Gym">
-            <div className="smooth-scroll">
-              <Routes>
-                <Route path="/" element={<Index />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </div>
-          </BrowserRouter>
+          <NavBar />
+          <div className="smooth-scroll">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE * ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
         </TooltipProvider>
       </QueryClientProvider>
-    </>
+    </BrowserRouter>
   );
+};
 
 export default App;
