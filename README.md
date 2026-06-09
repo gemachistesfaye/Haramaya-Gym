@@ -13,23 +13,14 @@ The official website for **Haramaya Gym** — a modern, multi-page fitness websi
 
 ## Screenshots
 
-### Home Page
-![Home Page](public/screenshots/home.png)
-
-### About Page
-![About Page](public/screenshots/about.png)
-
-### Services Page
-![Services Page](public/screenshots/services.png)
-
-### Pricing Page
-![Pricing Page](public/screenshots/pricing.png)
-
-### Pricing Comparison Table
-![Pricing Table](public/screenshots/pricing-table.png)
-
-### Contact Page
-![Contact Page](public/screenshots/contact.png)
+| | |
+|:---:|:---:|
+| **Home Page** | **About Page** |
+| ![Home Page](public/screenshots/home.png) | ![About Page](public/screenshots/about.png) |
+| **Services Page** | **Pricing Page** |
+| ![Services Page](public/screenshots/services.png) | ![Pricing Page](public/screenshots/pricing.png) |
+| **Pricing Table** | **Contact Page** |
+| ![Pricing Table](public/screenshots/pricing-table.png) | ![Contact Page](public/screenshots/contact.png) |
 
 ## Pages
 
