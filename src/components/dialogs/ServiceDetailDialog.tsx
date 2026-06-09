@@ -17,6 +17,7 @@ interface ServiceDetailDialogProps {
 }
 
 const ServiceDetailDialog = ({ service, open, onOpenChange }: ServiceDetailDialogProps) => {
+  const navigate = useNavigate();
   if (!service) return null;
 
   return (
@@ -58,7 +59,7 @@ const ServiceDetailDialog = ({ service, open, onOpenChange }: ServiceDetailDialo
         </div>
 
         <div className="flex gap-3 mt-5">
-          <Button variant="hero" size="lg" className="flex-1" onClick={() => onOpenChange(false)}>
+          <Button variant="hero" size="lg" className="flex-1" onClick={() => { onOpenChange(false); navigate("/contact"); }}>
             Book Now
           </Button>
           <Button variant="ghost" size="lg" onClick={() => onOpenChange(false)}>
