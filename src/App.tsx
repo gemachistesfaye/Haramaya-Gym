@@ -16,7 +16,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
   return (
-    <BrowserRouter basename="/Haramaya-Gym">
+    <BrowserRouter basename="/">
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <Toaster />

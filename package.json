@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://urjiko1.github.io/Haramaya-Gym",
+  "homepage": "https://gemachistesfaye.github.io/Haramaya-Gym",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
