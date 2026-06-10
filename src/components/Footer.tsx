@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Dumbbell, Facebook, Instagram, Twitter } from "lucide-react";
+import { MapPin, Phone, Mail, Dumbbell } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -16,17 +16,6 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
               Premium fitness experience in Haramaya, Ethiopia. Top-quality equipment and expert guidance.
             </p>
-            <div className="flex space-x-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="https://instagram.com/haramayagym" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
           <div>
@@ -69,7 +58,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                <span className="text-muted-foreground text-sm">+251 956784390</span>
+                <span className="text-muted-foreground text-sm">0976601074</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-3.5 h-3.5 text-accent flex-shrink-0" />

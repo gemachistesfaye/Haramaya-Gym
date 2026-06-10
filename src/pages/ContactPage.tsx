@@ -126,7 +126,7 @@ const ContactPage = () => {
               <CardContent className="space-y-5">
                 {[
                   { icon: MapPin, label: "Location", value: "Haramaya, Ethiopia" },
-                  { icon: Phone, label: "Phone", value: "+251 956784390" },
+                  { icon: Phone, label: "Phone", value: "0976601074" },
                   { icon: Mail, label: "Email", value: "info@haramayagym.com" },
                   { icon: Clock, label: "Hours", value: "Mon-Sun: 5:00 AM - 11:00 PM" },
                 ].map((item, i) => (
