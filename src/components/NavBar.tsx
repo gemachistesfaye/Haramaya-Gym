@@ -176,7 +176,7 @@ const NavBar = () => {
       </header>
 
       <Dialog open={joinDialogOpen} onOpenChange={setJoinDialogOpen}>
-        <DialogContent className="sm:max-w-md bg-card border-border mx-4">
+        <DialogContent className="sm:max-w-md bg-card border-border mx-4 w-[calc(100%-2rem)] max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-xl sm:text-2xl font-poppins text-primary">
               Start Your Free Trial
@@ -186,7 +186,7 @@ const NavBar = () => {
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleJoinSubmit} className="space-y-4 mt-2">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="space-y-1.5">
                 <Label htmlFor="join-first" className="text-sm">First Name *</Label>
                 <Input id="join-first" name="firstName" placeholder="First name" required />
