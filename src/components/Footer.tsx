@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer role="contentinfo" className="bg-secondary/40 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-3">
               <Dumbbell className="h-5 w-5 text-primary" />
