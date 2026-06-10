@@ -300,7 +300,7 @@ const HomePage = () => {
 
       <div className="section-divider max-w-4xl mx-auto" />
 
-      {/* Location */}
+      {/* Location + CTA */}
       <section className="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 bg-secondary/20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-10">
@@ -337,39 +337,18 @@ const HomePage = () => {
                   </div>
                 </div>
               ))}
-              <Link to="/contact">
-                <Button variant="hero" className="w-full mt-3 text-sm sm:text-base">
-                  Get Directions
-                </Button>
-              </Link>
+              <div className="pt-2">
+                <Link to="/pricing">
+                  <Button variant="hero" className="w-full text-sm sm:text-base">
+                    Start 7-Day Free Trial
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 bg-primary/10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-poppins font-black mb-3 sm:mb-4">
-            Ready to <span className="text-gradient">Transform</span>?
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8">
-            Start your 7-day free trial today. No commitment, no join fee.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Link to="/pricing">
-              <Button variant="hero" size="lg" className="px-8 sm:px-10 text-sm sm:text-lg w-full sm:w-auto">
-                View Plans
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button variant="glass" size="lg" className="px-8 sm:px-10 text-sm sm:text-lg w-full sm:w-auto">
-                Contact Us
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
