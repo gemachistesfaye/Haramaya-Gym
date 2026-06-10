@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <footer role="contentinfo" className="bg-secondary/40 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="col-span-2 md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="md:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-3">
               <Dumbbell className="h-5 w-5 text-primary" />
               <span className="font-poppins font-bold text-lg text-foreground">
@@ -18,7 +18,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-poppins font-semibold text-sm text-foreground mb-3">Quick Links</h4>
             <ul className="space-y-2">
               {[
@@ -36,7 +36,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-poppins font-semibold text-sm text-foreground mb-3">Services</h4>
             <ul className="space-y-2">
               {["Personal Training", "Body Building", "Group Classes", "Nutrition Classes", "Recovery & Wellness"].map((item) => (
@@ -49,7 +49,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="bg-secondary/60 p-5 rounded-xl border border-border/50 self-start">
+          <div className="bg-secondary/60 p-5 rounded-xl border border-border/50">
             <h4 className="font-poppins font-semibold text-sm text-foreground mb-4 flex items-center gap-2">
               <span className="w-6 h-px bg-primary"></span>
               Developer

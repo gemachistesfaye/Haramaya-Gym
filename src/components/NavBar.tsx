@@ -141,14 +141,14 @@ const NavBar = () => {
         </nav>
 
         {mobileOpen && (
-          <div className="lg:hidden fixed inset-0 top-[56px] bg-background/98 backdrop-blur-lg z-40">
-            <div className="flex flex-col p-4 space-y-1">
+          <div className="lg:hidden fixed inset-0 top-[56px] bg-background/98 backdrop-blur-lg z-40 overflow-y-auto">
+            <div className="flex flex-col p-4 gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3.5 rounded-xl text-base font-medium transition-colors ${
+                  className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${
                     location.pathname === link.path
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -157,10 +157,10 @@ const NavBar = () => {
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-3 border-t border-border mt-3">
+              <div className="pt-2 mt-2 border-t border-border">
                 <Button
                   variant="hero"
-                  size="lg"
+                  size="default"
                   className="w-full"
                   onClick={() => {
                     setMobileOpen(false);
