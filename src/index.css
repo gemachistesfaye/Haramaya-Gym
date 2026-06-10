@@ -126,6 +126,18 @@
     background-size: 200% 100%;
     animation: shimmer 3s linear infinite;
   }
+  .pop-in {
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  .pop-out {
+    animation: popOut 0.2s ease-in forwards;
+  }
+  .fade-in-scale {
+    animation: fadeInScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
 }
 
 @keyframes fadeInUp {
@@ -146,4 +158,24 @@
 @keyframes shimmer {
   from { background-position: 200% 0; }
   to { background-position: -200% 0; }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.3) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes popOut {
+  0% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(0.3) translateY(10px); }
+}
+
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232,168,56,0.4); }
+  50% { box-shadow: 0 0 20px 4px rgba(232,168,56,0.2); }
 }

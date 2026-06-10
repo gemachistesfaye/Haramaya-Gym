@@ -46,7 +46,7 @@ const ServicesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="card-gradient border-glow overflow-hidden group scale-hover">
+            <Card key={index} className="card-gradient border-glow overflow-hidden group scale-hover fade-in-up" style={{ animationDelay: `${index * 100}ms`, animationFillMode: "backwards" }}>
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src={service.image} 

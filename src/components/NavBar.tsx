@@ -139,41 +139,41 @@ const NavBar = () => {
             </button>
           </div>
         </nav>
+      </header>
 
-        {mobileOpen && (
-          <div className="lg:hidden fixed inset-0 top-[56px] bg-background/98 backdrop-blur-lg z-40 overflow-y-auto">
-            <div className="flex flex-col p-4 gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                    location.pathname === link.path
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="pt-2 mt-2 border-t border-border">
-                <Button
-                  variant="hero"
-                  size="default"
-                  className="w-full"
-                  onClick={() => {
-                    setMobileOpen(false);
-                    setJoinDialogOpen(true);
-                  }}
-                >
-                  Start Free Trial
-                </Button>
-              </div>
+      {mobileOpen && (
+        <div className="lg:hidden fixed top-14 left-0 right-0 z-50 bg-background border-b border-border shadow-lg max-h-[60vh] overflow-y-auto">
+          <div className="flex flex-col p-3 gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setMobileOpen(false)}
+                className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  location.pathname === link.path
+                    ? "text-primary bg-primary/10"
+                    : "text-foreground hover:bg-muted"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <div className="pt-2 mt-1 border-t border-border">
+              <Button
+                variant="hero"
+                size="sm"
+                className="w-full text-sm"
+                onClick={() => {
+                  setMobileOpen(false);
+                  setJoinDialogOpen(true);
+                }}
+              >
+                Start Free Trial
+              </Button>
             </div>
           </div>
-        )}
-      </header>
+        </div>
+      )}
 
       <Dialog open={joinDialogOpen} onOpenChange={setJoinDialogOpen}>
         <DialogContent className="sm:max-w-md bg-card border-border mx-4 w-[calc(100%-2rem)] max-h-[90vh] overflow-y-auto">
