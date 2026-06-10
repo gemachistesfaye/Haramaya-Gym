@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { toast } from "sonner";
 
-const FORMSPREE_ENDPOINT = "";
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || "";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({

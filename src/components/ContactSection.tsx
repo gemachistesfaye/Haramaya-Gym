@@ -7,8 +7,8 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { toast } from "sonner";
 
-// Place your Formspree endpoint URL here to send emails (e.g. "https://formspree.io/f/xoqpqpx")
-const FORMSPREE_ENDPOINT = "";
+// Formspree endpoint — set VITE_FORMSPREE_ENDPOINT in your .env file
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || "";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({

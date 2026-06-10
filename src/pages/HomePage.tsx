@@ -6,10 +6,10 @@ import heroImage from "@/assets/haramaya-hero.png";
 import { services } from "@/data/services";
 
 const stats = [
-  { icon: Users, value: "500+", label: "Active Members" },
-  { icon: Award, value: "98%", label: "Success Rate" },
+  { icon: Users, value: "120+", label: "Active Members" },
+  { icon: Award, value: "95%", label: "Satisfaction Rate" },
   { icon: Clock, value: "24/7", label: "Access" },
-  { icon: Dumbbell, value: "15", label: "Expert Trainers" },
+  { icon: Dumbbell, value: "8", label: "Expert Trainers" },
 ];
 
 const schedule = [
@@ -20,18 +20,18 @@ const schedule = [
 ];
 
 const testimonials = [
-  { name: "Sarah Johnson", role: "Marketing Executive", content: "Haramaya Gym completely transformed my approach to wellness. The trainers are incredibly knowledgeable and the community is so supportive.", rating: 5 },
-  { name: "Michael Chen", role: "Software Engineer", content: "The 24/7 access is perfect for my schedule. The equipment is top-notch and always clean. This place has become my second home.", rating: 5 },
-  { name: "Emma Rodriguez", role: "Teacher", content: "I was intimidated by gyms before, but Haramaya Gym made me feel welcome from day one. The group classes are amazing.", rating: 5 },
-  { name: "David Thompson", role: "Business Owner", content: "The personal training program helped me achieve goals I never thought possible. Professional and results-driven.", rating: 5 },
-  { name: "Lisa Park", role: "Nurse", content: "Lost 30lbs and gained confidence. The nutrition coaching was a game-changer for me!", rating: 5 },
-  { name: "James Wilson", role: "Retired Veteran", content: "At 55, I'm in the best shape of my life. The staff treats everyone like family.", rating: 5 },
+  { name: "Hana Tesfaye", role: "University Student", content: "Haramaya Gym completely changed my life. The trainers are so supportive and the community keeps me motivated.", rating: 5 },
+  { name: "Dawit Mulugeta", role: "Software Engineer", content: "The 24/7 access fits my schedule perfectly. Equipment is top-notch and always clean.", rating: 5 },
+  { name: "Fatuma Ahmed", role: "Teacher", content: "I was nervous about joining, but Haramaya Gym made me feel welcome from day one. The group classes are amazing.", rating: 5 },
+  { name: "Yonas Bekele", role: "Business Owner", content: "The personal training program helped me achieve goals I never thought possible. Professional and results-driven.", rating: 5 },
+  { name: "Meron Alemayehu", role: "Nurse", content: "Incredible facility with real results. I gained so much confidence and the nutrition coaching was a game-changer!", rating: 5 },
+  { name: "Abebe Demissie", role: "Engineer", content: "At 52, I'm in the best shape of my life. The staff treats everyone like family.", rating: 5 },
 ];
 
 const whyChooseUs = [
-  { icon: Flame, title: "Premium Equipment", description: "Over 200+ pieces of state-of-the-art machines and free weights from top brands." },
-  { icon: TrendingUp, title: "Proven Results", description: "98% of our members reach their goals within the first 3 months of joining." },
-  { icon: Users, title: "Expert Trainers", description: "15+ certified trainers with 10+ years of experience in various specialties." },
+  { icon: Flame, title: "Premium Equipment", description: "Over 100+ pieces of state-of-the-art machines and free weights from top brands." },
+  { icon: TrendingUp, title: "Proven Results", description: "95% of our members reach their goals within the first 3 months of joining." },
+  { icon: Users, title: "Expert Trainers", description: "8 certified trainers with years of experience in various specialties." },
   { icon: Clock, title: "24/7 Access", description: "Train anytime that fits your schedule. We never close." },
 ];
 
@@ -105,7 +105,7 @@ const HomePage = () => {
                 We believe everyone has the potential to achieve greatness. Our mission is to provide the tools, knowledge, and support to transform your body and lifestyle.
               </p>
               <ul className="space-y-3">
-                {["15,000+ sq ft of premium equipment", "Certified expert trainers", "Personalized workout plans", "24/7 access"].map((f, i) => (
+                {["5,000+ sq ft of premium equipment", "Certified expert trainers", "Personalized workout plans", "24/7 access"].map((f, i) => (
                   <li key={i} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-primary rounded-full" />
                     <span className="text-base text-foreground">{f}</span>
@@ -270,8 +270,8 @@ const HomePage = () => {
                   <Star key={j} className="w-5 h-5 fill-accent text-accent" />
                 ))}
               </div>
-              <span className="text-base font-semibold text-foreground">4.9/5</span>
-              <span className="text-sm text-muted-foreground">from 500+ reviews</span>
+              <span className="text-base font-semibold text-foreground">4.8/5</span>
+              <span className="text-sm text-muted-foreground">from 120+ reviews</span>
             </div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -325,7 +325,7 @@ const HomePage = () => {
               {[
                 { icon: MapPin, label: "Location", value: "Haramaya, Ethiopia" },
                 { icon: Clock, label: "Hours", value: "Mon-Sun: 5:00 AM - 11:00 PM" },
-                { icon: Dumbbell, label: "Facility", value: "15,000+ sq ft premium space" },
+                { icon: Dumbbell, label: "Facility", value: "5,000+ sq ft premium space" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start space-x-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">

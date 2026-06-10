@@ -9,7 +9,7 @@ The official website for **Haramaya Gym** — a modern, multi-page fitness websi
 
 ## Live Demo
 
-**[Haramaya Gym Live](https://gemachistesfaye.github.io/Haramaya-Gym)**
+**[Haramaya Gym Live](https://haramaya-gym.vercel.app)**
 
 ## Screenshots
 

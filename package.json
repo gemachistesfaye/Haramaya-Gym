@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://gemachistesfaye.github.io/Haramaya-Gym",
+  "homepage": "https://haramaya-gym.vercel.app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

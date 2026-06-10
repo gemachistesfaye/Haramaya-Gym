@@ -4,46 +4,46 @@ import { Star } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Marketing Executive",
-      content: "Haramaya Gym completely transformed my approach to wellness. The trainers are incredibly knowledgeable and the community is so supportive. I've never felt stronger!",
+      name: "Hana Tesfaye",
+      role: "University Student",
+      content: "Haramaya Gym completely changed my life. The trainers are so supportive and the community keeps me motivated. I've never felt stronger!",
       rating: 5,
-      image: "SJ"
+      image: "HT"
     },
     {
-      name: "Michael Chen",
-      role: "Software Engineer", 
-      content: "The 24/7 access is perfect for my schedule. The equipment is top-notch and always clean. This place has become my second home.",
+      name: "Dawit Mulugeta",
+      role: "Software Engineer",
+      content: "The 24/7 access fits my schedule perfectly. Equipment is top-notch and always clean. This place has become my second home.",
       rating: 5,
-      image: "MC"
+      image: "DM"
     },
     {
-      name: "Emma Rodriguez",
+      name: "Fatuma Ahmed",
       role: "Teacher",
-      content: "I was intimidated by gyms before, but Haramaya Gym made me feel welcome from day one. The group classes are amazing and I've made lifelong friends here.",
+      content: "I was nervous about joining a gym, but Haramaya Gym made me feel welcome from day one. The group classes are amazing and I've made lifelong friends.",
       rating: 5,
-      image: "ER"
+      image: "FA"
     },
     {
-      name: "David Thompson",
+      name: "Yonas Bekele",
       role: "Business Owner",
-      content: "The personal training program helped me achieve goals I never thought possible. Professional, results-driven, and worth every penny.",
+      content: "The personal training program helped me achieve goals I never thought possible. Professional, results-driven, and worth every birr.",
       rating: 5,
-      image: "DT"
+      image: "YB"
     },
     {
-      name: "Lisa Park",
+      name: "Meron Alemayehu",
       role: "Nurse",
-      content: "Amazing facility with incredible results. Lost 30lbs and gained so much confidence. The nutrition coaching was a game-changer for me!",
+      content: "Incredible facility with real results. I gained so much confidence and the nutrition coaching was a complete game-changer for me!",
       rating: 5,
-      image: "LP"
+      image: "MA"
     },
     {
-      name: "James Wilson",
-      role: "Retired Veteran",
-      content: "At 55, I'm in the best shape of my life thanks to Haramaya Gym. The staff treats everyone like family and the atmosphere is motivating yet comfortable.",
+      name: "Abebe Demissie",
+      role: "Engineer",
+      content: "At 52, I'm in the best shape of my life thanks to Haramaya Gym. The staff treats everyone like family and the atmosphere is incredible.",
       rating: 5,
-      image: "JW"
+      image: "AD"
     }
   ];
 
@@ -97,8 +97,8 @@ const TestimonialsSection = () => {
                 <Star key={i} className="w-6 h-6 fill-accent text-accent" />
               ))}
             </div>
-            <span className="text-foreground font-semibold">4.9/5</span>
-            <span className="text-muted-foreground">from 500+ reviews</span>
+            <span className="text-foreground font-semibold">4.8/5</span>
+            <span className="text-muted-foreground">from 120+ reviews</span>
           </div>
         </div>
       </div>
