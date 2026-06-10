@@ -21,10 +21,13 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || "";
+
 const NavBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [joinDialogOpen, setJoinDialogOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isJoinLoading, setIsJoinLoading] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -42,10 +45,45 @@ const NavBar = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const handleJoinSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleJoinSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success("Welcome! We'll contact you shortly to start your free trial.");
-    setJoinDialogOpen(false);
+    setIsJoinLoading(true);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const firstName = formData.get("firstName") || "";
+    const lastName = formData.get("lastName") || "";
+    const email = formData.get("email") || "";
+    const phone = formData.get("phone") || "";
+
+    if (FORMSPREE_ENDPOINT) {
+      try {
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            _subject: `New Free Trial Sign-up from ${firstName} ${lastName}`.trim(),
+            _template: "table",
+            Name: `${firstName} ${lastName}`.trim(),
+            Email: email,
+            Phone: phone || "Not provided",
+            Type: "Free Trial Sign-up",
+          }),
+        });
+        if (response.ok) {
+          toast.success("Welcome! We'll contact you shortly to start your free trial.");
+          setJoinDialogOpen(false);
+        } else {
+          toast.error("Something went wrong. Please try again.");
+        }
+      } catch {
+        toast.error("An error occurred. Please check your connection.");
+      }
+    } else {
+      await new Promise((r) => setTimeout(r, 1000));
+      toast.success("Welcome! We'll contact you shortly to start your free trial.");
+      setJoinDialogOpen(false);
+    }
+    setIsJoinLoading(false);
   };
 
   return (
@@ -151,23 +189,23 @@ const NavBar = () => {
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1.5">
                 <Label htmlFor="join-first" className="text-sm">First Name *</Label>
-                <Input id="join-first" placeholder="First name" required />
+                <Input id="join-first" name="firstName" placeholder="First name" required />
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="join-last" className="text-sm">Last Name</Label>
-                <Input id="join-last" placeholder="Last name" />
+                <Input id="join-last" name="lastName" placeholder="Last name" />
               </div>
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="join-email" className="text-sm">Email *</Label>
-              <Input id="join-email" type="email" placeholder="you@example.com" required />
+              <Input id="join-email" name="email" type="email" placeholder="you@example.com" required />
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="join-phone" className="text-sm">Phone</Label>
-              <Input id="join-phone" type="tel" placeholder="+251 9XX XXX XXX" />
+              <Input id="join-phone" name="phone" type="tel" placeholder="+251 9XX XXX XXX" />
             </div>
-            <Button type="submit" variant="hero" size="lg" className="w-full">
-              Start 7-Day Free Trial
+            <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isJoinLoading}>
+              {isJoinLoading ? "Sending..." : "Start 7-Day Free Trial"}
             </Button>
           </form>
         </DialogContent>
