@@ -33,10 +33,18 @@ const ContactPage = () => {
     setIsLoading(true);
     try {
       if (FORMSPREE_ENDPOINT) {
+        const formattedData = {
+          _subject: `New Message from ${formData.firstName} ${formData.lastName}`.trim(),
+          _template: "table",
+          Name: `${formData.firstName} ${formData.lastName}`.trim(),
+          Email: formData.email,
+          Phone: formData.phone || "Not provided",
+          Message: formData.message,
+        };
         const response = await fetch(FORMSPREE_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(formattedData),
         });
         if (response.ok) {
           toast.success("Message sent! We'll contact you shortly.");
